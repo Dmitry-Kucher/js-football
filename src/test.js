@@ -1,5 +1,10 @@
 /**
  * Created by dima on 18/05/2017.
  */
-console.log('test 5');
-console.log('It Finally Works! 2');
+import Gameloop from './classes/Gameloop';
+
+const width = 800;
+const height = 600;
+
+const gameloop = new Gameloop({ width, height });
+gameloop.start();
