@@ -1,4 +1,5 @@
 import Gamefield from './Gamefield';
+import ColorMap from './ColorMap';
 
 export default class Gameloop {
   constructor(options) {
@@ -8,7 +9,7 @@ export default class Gameloop {
   start() {
     const options = this.getOptions();
     window.addEventListener('load', () => {
-      const backgroundColor = '0x1099bb';
+      const backgroundColor = ColorMap.backgroundColor;
       const app = new PIXI.Application(options.width, options.height, { backgroundColor });
       document.body.appendChild(app.view);
 

@@ -1,8 +1,15 @@
+import colorMap from './ColorMap';
+
 export default class PaperCell {
-  constructor({ width = 50, height = 50, cellColor = '0xffffff', cellLine = '0xff33000' } = {}) {
+  constructor({ width = 50,
+                height = 50,
+                cellColor = colorMap.cellColor,
+                cellLineColor = colorMap.cellLineColor,
+                cellLineWidth = 3 } = {}) {
     const rectangle = new PIXI.Graphics();
     rectangle.beginFill(cellColor);
-    rectangle.drawRect(0, 0, width, height);
+    rectangle.lineStyle(cellLineWidth, cellLineColor);
+    rectangle.drawRect(cellLineWidth, cellLineWidth, width, height);
     rectangle.endFill();
     return rectangle;
   }
