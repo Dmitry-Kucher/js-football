@@ -5,22 +5,19 @@ export default class Gamefield {
     if (!options.stage || !options.stage.addChild) {
       throw new Error('Unsupported instance of stage. Please, specify PIXI.Container as a stage');
     }
-    const defaultOptions = { width: 50, height: 50, cols: 17, rows: 20 };
+    const defaultOptions = { width: 20, height: 20, cols: 30, rows: 40 };
     this.getOptions = () => ({ ...options, ...defaultOptions });
   }
 
   build() {
-    const { width, height, stage } = this.getOptions();
-    let { cols, rows } = this.getOptions();
-    while (cols > 0) {
-      while (rows > 0) {
-        rows -= 1;
-        const paperCell = new PaperCell({ width, height });
-        paperCell.x = cols * width;
-        paperCell.y = rows * height;
+    const { width, height, stage, cols, rows } = this.getOptions();
+    for (let column = 0; column < cols; column += 1) {
+      for (let row = 0; row < rows; row += 1) {
+        const x = column * width;
+        const y = row * height;
+        const paperCell = new PaperCell({ x, y, width, height });
         stage.addChild(paperCell);
       }
-      cols -= 1;
     }
   }
 }

@@ -3,8 +3,8 @@
  */
 import Gameloop from './classes/Gameloop';
 
-const width = 800;
-const height = 600;
+const width = 1200;
+const height = 800;
 
 const gameloop = new Gameloop({ width, height });
 gameloop.start();
