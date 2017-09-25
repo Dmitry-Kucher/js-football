@@ -1,12 +1,7 @@
-import colorMap from './ColorMap';
-
 export default class PaperLine {
-  constructor({ startPoint = { x: 0, y: 0 },
-                endPoint = { x: 50, y: 50 },
-                lineColor = colorMap.cellLineColor,
-                lineWidth = 1 } = {}) {
+  constructor({ startPoint = { x: 0, y: 0 }, endPoint = { x: 50, y: 50 }, lineStyle } = {}) {
     const line = new PIXI.Graphics();
-    line.drawLine({ startPoint, endPoint, lineColor, lineWidth });
+    line.drawLine({ startPoint, endPoint, lineStyle });
     return line;
   }
 }
