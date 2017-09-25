@@ -1,9 +1,11 @@
 import Gamefield from './Gamefield';
 import ColorMap from './ColorMap';
+import PIXIHelper from './PIXIHelper';
 
 export default class Gameloop {
   constructor(options) {
     this.getOptions = () => options;
+    PIXIHelper.registerHelpers();
   }
 
   start() {
