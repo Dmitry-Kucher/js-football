@@ -34,5 +34,24 @@ export default class Gamefield {
       const line = new PaperLine({ startPoint, endPoint, lineStyle });
       stage.addChild(line);
     }
+
+    // draw center
+    const centerPoint = new PIXI.Graphics();
+    centerPoint.interactive = true;
+    centerPoint.mouseover = function mouseOverCenterPoint() {
+      this.tint = colorMap.pointMouseOverColor;
+      centerPoint.radius = 40;
+      stage.addChild(centerPoint);
+    };
+    centerPoint.mouseout = function mouseOutCenterPoint() {
+      this.tint = colorMap.pointColor;
+    };
+    centerPoint.beginFill(colorMap.pointColor);
+    const x = ((cols * width) / 2) + lineWidth;
+    const y = ((rows * height) / 2) + lineWidth;
+    const radius = 20;
+    centerPoint.drawCircle(x, y, radius);
+    centerPoint.endFill();
+    stage.addChild(centerPoint);
   }
 }
