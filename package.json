@@ -1,7 +1,7 @@
 {
-  "name": "js-jigsaw-puzzle",
+  "name": "js-football",
   "version": "0.0.1",
-  "description": "Puzzle Library Package",
+  "description": "JS Football game",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Dmitry-Kucher/js-football.git"
