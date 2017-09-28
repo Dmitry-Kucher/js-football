@@ -4,7 +4,7 @@
   "description": "Puzzle Library Package",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Dmitry-Kucher/es6-app-starter.git"
+    "url": "git+https://github.com/Dmitry-Kucher/js-football.git"
   },
   "author": "Dmitry.A.Kucher",
   "devDependencies": {
