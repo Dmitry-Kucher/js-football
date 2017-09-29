@@ -1,5 +1,6 @@
 import PaperLine from './PaperLine';
 import colorMap from './ColorMap';
+import InteractiveCircle from './InteractiveCircle';
 
 export default class Gamefield {
   constructor(options) {
@@ -15,7 +16,7 @@ export default class Gamefield {
     const lineStyle = {
       lineWidth,
       lineColor: colorMap.cellLineColor,
-      lineAlpha: 0.2,
+      lineAlpha: 0.7,
     };
     // draw vertical lines
     for (let column = 0; column <= cols; column += 1) {
@@ -35,23 +36,15 @@ export default class Gamefield {
       stage.addChild(line);
     }
 
-    // draw center
-    const centerPoint = new PIXI.Graphics();
-    centerPoint.interactive = true;
-    centerPoint.mouseover = function mouseOverCenterPoint() {
-      this.tint = colorMap.pointMouseOverColor;
-      centerPoint.radius = 40;
-      stage.addChild(centerPoint);
-    };
-    centerPoint.mouseout = function mouseOutCenterPoint() {
-      this.tint = colorMap.pointColor;
-    };
-    centerPoint.beginFill(colorMap.pointColor);
-    const x = ((cols * width) / 2) + lineWidth;
-    const y = ((rows * height) / 2) + lineWidth;
-    const radius = 20;
-    centerPoint.drawCircle(x, y, radius);
-    centerPoint.endFill();
-    stage.addChild(centerPoint);
+    for (let row = 1; row < rows; row += 1) {
+      for (let col = 1; col < cols; col += 1) {
+        const x = (col * width) + lineWidth;
+        const y = (row * height) + lineWidth;
+        const radius = 5;
+        const style = { color: colorMap.pointColor, alpha: 0.3 };
+        const hoverableCircle = new InteractiveCircle({ x, y, radius, style });
+        stage.addChild(hoverableCircle);
+      }
+    }
   }
 }
