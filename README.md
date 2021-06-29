@@ -4,10 +4,12 @@ Inspired by table game at notebook paper
 
 ## How to start
 
-To start project you need to execute 2 commands:
+To start project you need to run:
 
-`npm install`
+`npm run start`
 
-`gulp defaul --build=browser`
+For production build use:
 
-All done. Project is already opened at your browser.
+`npm run build`
+
+All done. Project already opened at your browser.
