@@ -5,6 +5,8 @@ const colorMap = {
   defaultColor: 0x000000,
   pointMouseOverColor: 0xff1000,
   pointColor: 0x000000,
+  highlightColor: 0xffffff,
+    stepColor: 0xff0000,
 };
 
 export default colorMap;
